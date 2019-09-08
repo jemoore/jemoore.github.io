@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jemoore.githug.io/about/</loc>
+    <lastmod>2019-09-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jemoore.githug.io/categories/antergos/</loc>
     <lastmod>2019-07-05T00:00:00+00:00</lastmod>
   </url>
@@ -120,11 +125,6 @@
   <url>
     <loc>https://jemoore.githug.io/blog/efi-boot-antergos/</loc>
     <lastmod>2018-09-16T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jemoore.githug.io/about/</loc>
-    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
