@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>boot on Jeff Moore</title>
+    <link>https://jemoore.githug.io/categories/boot/</link>
+    <description>Recent content in boot on Jeff Moore</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 16 Sep 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jemoore.githug.io/categories/boot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Fix Grub (EFI boot) on Antergos</title>
+      <link>https://jemoore.githug.io/blog/efi-boot-antergos/</link>
+      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/blog/efi-boot-antergos/</guid>
+      <description>The Problem I have an HP laptop setup with dual boot between Windows 10 and Antergos (Arch Linux derivative). Windows 10 updates as well as the Intel BIOS updates tend to remove grub from the EFI partition.
+While recently booted into Windows I saw that there was a BIOS update for my laptop. After installing the update I no longer had the grub menu at boot and could not select my Antergos install.</description>
+    </item>
+    
+  </channel>
+</rss>

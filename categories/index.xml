@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Jeff Moore</title>
+    <link>https://jemoore.githug.io/categories/</link>
+    <description>Recent content in Categories on Jeff Moore</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 05 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jemoore.githug.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>antergos</title>
+      <link>https://jemoore.githug.io/categories/antergos/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/categories/antergos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>arch</title>
+      <link>https://jemoore.githug.io/categories/arch/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/categories/arch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>efi</title>
+      <link>https://jemoore.githug.io/categories/efi/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/categories/efi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grub</title>
+      <link>https://jemoore.githug.io/categories/grub/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/categories/grub/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://jemoore.githug.io/categories/linux/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hardware</title>
+      <link>https://jemoore.githug.io/categories/hardware/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/categories/hardware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>laptop</title>
+      <link>https://jemoore.githug.io/categories/laptop/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/categories/laptop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssd</title>
+      <link>https://jemoore.githug.io/categories/ssd/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/categories/ssd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>basic</title>
+      <link>https://jemoore.githug.io/categories/basic/</link>
+      <pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/categories/basic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>code</title>
+      <link>https://jemoore.githug.io/categories/code/</link>
+      <pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/categories/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>memories</title>
+      <link>https://jemoore.githug.io/categories/memories/</link>
+      <pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/categories/memories/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>boot</title>
+      <link>https://jemoore.githug.io/categories/boot/</link>
+      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/categories/boot/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

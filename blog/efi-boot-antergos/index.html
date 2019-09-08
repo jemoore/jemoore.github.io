@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+<title>How to Fix Grub (EFI boot) on Antergos - Jeff Moore</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <meta name="generator" content="Hugo 0.57.2" />
+  <meta itemprop="name" content="How to Fix Grub (EFI boot) on Antergos">
+<meta itemprop="description" content="The Problem I have an HP laptop setup with dual boot between Windows 10 and Antergos (Arch Linux derivative). Windows 10 updates as well as the Intel BIOS updates tend to remove grub from the EFI partition.
+While recently booted into Windows I saw that there was a BIOS update for my laptop. After installing the update I no longer had the grub menu at boot and could not select my Antergos install.">
+
+
+<meta itemprop="datePublished" content="2018-09-16T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-09-16T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="714">
+
+
+
+<meta itemprop="keywords" content="" />
+
+  <meta property="og:title" content="How to Fix Grub (EFI boot) on Antergos" />
+<meta property="og:description" content="The Problem I have an HP laptop setup with dual boot between Windows 10 and Antergos (Arch Linux derivative). Windows 10 updates as well as the Intel BIOS updates tend to remove grub from the EFI partition.
+While recently booted into Windows I saw that there was a BIOS update for my laptop. After installing the update I no longer had the grub menu at boot and could not select my Antergos install." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jemoore.githug.io/blog/efi-boot-antergos/" />
+<meta property="article:published_time" content="2018-09-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-09-16T00:00:00+00:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Fix Grub (EFI boot) on Antergos"/>
+<meta name="twitter:description" content="The Problem I have an HP laptop setup with dual boot between Windows 10 and Antergos (Arch Linux derivative). Windows 10 updates as well as the Intel BIOS updates tend to remove grub from the EFI partition.
+While recently booted into Windows I saw that there was a BIOS update for my laptop. After installing the update I no longer had the grub menu at boot and could not select my Antergos install."/>
+<meta name="twitter:site" content="@bitoverlap"/>
+
+  
+
+  <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+  
+    
+      <link rel="stylesheet" href="/css/normalize.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Source+Sans+Pro:400,700">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" />
+      
+      
+      <link rel="stylesheet" href="/css/main.min.0a64f3eede6e78edc2d8b2ca7051e4d9a6379f472dac76b1168733b88d27146a.css" integrity="sha256-CmTz7t5ueO3C2LLKcFHk2aY3n0ctrHaxFoczuI0nFGo=">
+      <link rel="stylesheet" href="/css/add-on.css">
+    
+  
+  
+  
+  
+</head>
+
+  <body>
+    
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/">
+        
+          
+            Blog
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu">
+      
+        
+          
+          
+            <a href="/" class="link"><i class='fa fa-home'></i> Home</a>
+          
+        
+      
+        
+          
+          
+            <a href="/about/" class="link"><i class='far fa-id-card'></i> About</a>
+          
+        
+      
+        
+          
+          
+            <a href="/blog/" class="link"><i class='far fa-newspaper'></i> Blog</a>
+          
+        
+      
+        
+          
+          
+            <a href="/categories/" class="link"><i class='fas fa-sitemap'></i> Categories</a>
+          
+        
+      
+        
+          
+          
+            <a href="/contact/" class="link"><i class='far fa-envelope'></i> Contact</a>
+          
+        
+      
+      <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      
+
+    </menu>
+    
+
+    <a href="#share-menu" class="share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="lang-toggle" lang="en">en</a>
+    <a href="#site-nav" class="nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="lang-menu" class="flyout-menu">
+  <a href="#" lang="en" class="link active">English (en)</a>
+  
+    
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=How%20to%20Fix%20Grub%20%28EFI%20boot%29%20on%20Antergos&amp;url=https%3a%2f%2fjemoore.githug.io%2fblog%2fefi-boot-antergos%2f" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjemoore.githug.io%2fblog%2fefi-boot-antergos%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fjemoore.githug.io%2fblog%2fefi-boot-antergos%2f&amp;title=How%20to%20Fix%20Grub%20%28EFI%20boot%29%20on%20Antergos" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjemoore.githug.io%2fblog%2fefi-boot-antergos%2f&amp;title=How%20to%20Fix%20Grub%20%28EFI%20boot%29%20on%20Antergos" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjemoore.githug.io%2fblog%2fefi-boot-antergos%2f&amp;description=How%20to%20Fix%20Grub%20%28EFI%20boot%29%20on%20Antergos" target="_blank" rel="noopener" class="share-btn pinterest">
+          <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fjemoore.githug.io%2fblog%2fefi-boot-antergos%2f" target="_blank" class="share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro">
+  <a href="/"><img src="/img/main/logo.jpg" class="circle" width="" alt="Hugo Future Imperfect Slim" /></a>
+  <header>
+    <h1>BitOverlap</h1>
+  </header>
+  <main>
+    <p>A blog by Jeff Moore</p>
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/jemoore" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/example" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/bitoverlap" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:jeff.moore.email@gmail.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        <article class="post">
+  <header>
+  <div class="title">
+    
+        <h2><a href="/blog/efi-boot-antergos/">How to Fix Grub (EFI boot) on Antergos</a></h2>
+    
+    
+</div>
+  <div class="meta">
+    <time class="published" datetime="2018-09-16 00:00:00 &#43;0000 UTC">
+      September 16, 2018
+    </time>
+    <span class="author"></span>
+    
+      <p>4 minutes read</p>
+    
+  </div>
+</header>
+
+  <section id="socnet-share">
+    
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=How%20to%20Fix%20Grub%20%28EFI%20boot%29%20on%20Antergos&amp;url=https%3a%2f%2fjemoore.githug.io%2fblog%2fefi-boot-antergos%2f" target="_blank" rel="noopener" class="share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjemoore.githug.io%2fblog%2fefi-boot-antergos%2f" target="_blank" rel="noopener" class="share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fjemoore.githug.io%2fblog%2fefi-boot-antergos%2f&amp;title=How%20to%20Fix%20Grub%20%28EFI%20boot%29%20on%20Antergos" target="_blank" rel="noopener" class="share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjemoore.githug.io%2fblog%2fefi-boot-antergos%2f&amp;title=How%20to%20Fix%20Grub%20%28EFI%20boot%29%20on%20Antergos" target="_blank" rel="noopener" class="share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fjemoore.githug.io%2fblog%2fefi-boot-antergos%2f&amp;description=How%20to%20Fix%20Grub%20%28EFI%20boot%29%20on%20Antergos" target="_blank" rel="noopener" class="share-btn pinterest">
+          <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=Check out this post by %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fjemoore.githug.io%2fblog%2fefi-boot-antergos%2f" target="_blank" class="share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+  </section>
+  
+
+  <div class="content">
+    
+
+<h2 id="the-problem">The Problem</h2>
+
+<p>I have an HP laptop setup with dual boot between Windows 10 and Antergos (Arch Linux derivative).  Windows 10 updates as well as the Intel BIOS updates tend to remove grub from  the EFI partition.</p>
+
+<p>While recently booted into Windows I saw that there was a BIOS update for my laptop. After installing the update I no longer had the grub menu at boot and could not select my Antergos install.  The laptop would boot directly into Windows 10.</p>
+
+<p>I still had the usb flash drive with the live iso of Antergos I used for installation. I plugged in the usb flash drive and rebooted the laptop. On my HP laptop I need to press and hold the ESC key at startup to get to a menu (F9) that allows me to select which drive from which to boot.</p>
+
+<p>I performed the steps listed in the next section to reinstall grub.</p>
+
+<p><strong>WARNING</strong>: The following solution will have you manipulating the partitions on your HDD or SSD.
+Make sure you have backups. If you do not have backups, use the live iso to backup your linux partition, reboot into Windows, and make a backup. It&rsquo;s probably also a good time to make sure you have a way to reinstall Windows in case things go very wrong.</p>
+
+<h2 id="the-solution">The Solution</h2>
+
+<p>Open a terminal and use the following command to list the devices and partitions.</p>
+
+<pre><code class="language-bash">sudo fdisk -l
+
+Disk /dev/sda: 489.1 GiB, 525112713216 bytes, 1025610768 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: gpt
+Disk identifier: 45DFB657-4D52-4F6A-8598-0B77B7295687
+
+Device Start End Sectors Size Type
+/dev/sda1 2048 534527 532480 260M EFI System
+/dev/sda2 534528 567295 32768 16M Microsoft reserved
+/dev/sda3 2758544 730187775 727429232 346.9G Microsoft basic data
+/dev/sda4 998623232 1000630271 2007040 980M Windows recovery environment
+/dev/sda5 1000630272 1025599487 24969216 11.9G Microsoft basic data
+/dev/sda6 730187776 792687775 62500000 29.8G Linux filesystem
+/dev/sda7 792687776 808312775 15625000 7.5G Linux filesystem
+/dev/sda8 808312776 998623231 190310456 90.8G Linux filesystem
+
+Partition table entries are not in disk order.
+</code></pre>
+
+<p>From the above results I can see that the EFI boot partition is /dev/sda1.
+I also can recall that when I originally installed Antergos I created:
+* /dev/sda6 - root partition
+* /dev/sda7 - swap partition
+* /dev/sda8 - home partition</p>
+
+<p>Next, the root partition should be mounted</p>
+
+<pre><code class="language-bash">	# change to su, be careful!
+	sudo su
+
+	# /dev/sda6 contains my root partition
+	mount /dev/sda6 /mnt
+</code></pre>
+
+<p>Next, the boot partition, if you have one, should be mounted.
+I do not have a boot partition but if I did I would execute the following
+command, replacing /dev/sdXn with the actual partition.</p>
+
+<pre><code class="language-bash"># /dev/sdXn contains boot partition
+mount /dev/sdXn /mnt/boot
+</code></pre>
+
+<p>Next, mount the EFI boot partition</p>
+
+<pre><code class="language-bash"># /dev/sda1 contains my EFI boot partition
+mount /dev/sda1 /mnt/boot/efi
+</code></pre>
+
+<p>Now we need to change the mounted partitions to be our &ldquo;real&rdquo; partitions.</p>
+
+<pre><code class="language-bash">arch-chroot /mnt
+</code></pre>
+
+<p>Now we should run os-prober to identify the Windows 10 os.</p>
+
+<pre><code class="language-bash">os-prober
+</code></pre>
+
+<p>In my case, I received an error related to my usb drive (/dev/sdab) which was running the live iso.  I could not find a way to make os-prober ignore the usb drive so I continued and I believe this was the source of an issue I later had (more below).</p>
+
+<p>Next, grub-mkconfig and grub-install are used to reginerate and install grub.</p>
+
+<pre><code class="language-bash">grub-mkconfig -o /boot/grub/grub.cfg
+
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Antergos-grub
+</code></pre>
+
+<p>If you receive any errors, go back and check that you have the correct partitions mapped.  You have backups, right?</p>
+
+<h2 id="success">Success?</h2>
+
+<p>Almost. When I rebooted I received the grub menu but my Windows install was not listed in the grub menu.</p>
+
+<p>Momentary <strong>PANIC!</strong></p>
+
+<p>Voice in my head: <em>&ldquo;You have a backup, right?&rdquo;</em></p>
+
+<p>Me: <em>&ldquo;Yes&hellip; when did it last run?&rdquo;</em></p>
+
+<p>Voice in my head: <em>&ldquo;You have a way to reinstall Windows, right?&rdquo;</em></p>
+
+<p>Me: <em>&ldquo;Uh&hellip; Yes! I created the USB installer earlier this year when installing a new SSD.&rdquo;</em></p>
+
+<p>Then I remembered the issue I had when running os-prober.</p>
+
+<p>I selected Antergos from grub and once in Linux, I opened a terminal and ran the following commands again.</p>
+
+<pre><code class="language-bash">sudo su
+
+os-prober
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=Antergos-grub
+</code></pre>
+
+<p>The above commands completed without error and when I rebooted the grub menu appeared and both Antergos and Windows were listed.</p>
+
+<p>Success!</p>
+
+  </div>
+  <footer>
+    <ul class="stats">
+  
+    
+    
+      <li class="categories">
+        <ul>
+          
+            
+            <li><a class="article-category-link" href="https://jemoore.githug.io/categories/linux">linux</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://jemoore.githug.io/categories/efi">efi</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://jemoore.githug.io/categories/boot">boot</a></li>
+          
+            
+            <li><a class="article-category-link" href="https://jemoore.githug.io/categories/antergos">antergos</a></li>
+          
+        </ul>
+      </li>
+    
+  
+  
+    <li class="tags">
+      <ul>
+        <li>None</li>
+      </ul>
+    </li>
+  
+</ul>
+
+  </footer>
+</article>
+
+
+<div class="pagination">
+  
+  
+    <a href="/blog/first-code/" class="button big next">Memories of My First Code <i class="fas fa-angle-right"></i></a>
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>Recent posts</h1>
+      </header>
+      
+      <article class="mini-post">
+        <section>
+          
+
+        </section>
+        <header>
+          <h1><a href="/blog/unknown-filesystem/">Unknow Filesystem</a></h1>
+          <time class="published" datetime="">July 5, 2019</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+
+        </section>
+        <header>
+          <h1><a href="/blog/ssd-clone/">Cloning an SSD Replacement</a></h1>
+          <time class="published" datetime="">November 25, 2018</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+
+        </section>
+        <header>
+          <h1><a href="/blog/ssd-hp-x360/">HP Envy X360 SSD Replacement</a></h1>
+          <time class="published" datetime="">November 24, 2018</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+
+        </section>
+        <header>
+          <h1><a href="/blog/first-code/">Memories of My First Code</a></h1>
+          <time class="published" datetime="">November 3, 2018</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+
+        </section>
+        <header>
+          <h1><a href="/blog/efi-boot-antergos/">How to Fix Grub (EFI boot) on Antergos</a></h1>
+          <time class="published" datetime="">September 16, 2018</time>
+        </header>
+      </article>
+      
+      
+        <a href="/blog/" class="button">See more</a>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">Categories</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/antergos/">antergos<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/efi/">efi<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/linux/">linux<span class="count">2</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/arch/">arch<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/basic/">basic<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/boot/">boot<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/code/">code<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/grub/">grub<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/hardware/">hardware<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/laptop/">laptop<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/memories/">memories<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/ssd/">ssd<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  <section id="mini-bio">
+    <header>
+      <h1>About</h1>
+    </header>
+    <p>test</p>
+    <footer>
+      <a href="/about" class="button">Learn More</a>
+    </footer>
+  </section>
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/jemoore" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/example" target="_blank" rel="noopener" title="LinkedIn" class="fab fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/bitoverlap" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+
+
+
+
+
+
+<li><a href="mailto:jeff.moore.email@gmail.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2019
+      
+        Jeff Moore
+      
+    . <br>
+    Theme: <a href='https://github.com/pacollins/hugo-future-imperfect-slim' target='_blank' rel='noopener'>Hugo Future Imperfect Slim</a><br>A <a href='https://html5up.net/future-imperfect' target='_blank' rel='noopener'>HTML5 UP port</a> | Powered by <a href='https://gohugo.io/' title='0.57.2' target='_blank' rel='noopener'>Hugo</a>
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/html.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/css.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/js.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/toml.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/clojure.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/skel/3.0.1/skel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  <script src=/js/util.js></script>
+  <script src=/js/main.js></script>
+  <script src=/js/add-on.js></script>
+  
+
+
+
+
+
+    </div>
+  </body>
+</html>

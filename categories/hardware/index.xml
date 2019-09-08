@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hardware on Jeff Moore</title>
+    <link>https://jemoore.githug.io/categories/hardware/</link>
+    <description>Recent content in hardware on Jeff Moore</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 25 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jemoore.githug.io/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cloning an SSD Replacement</title>
+      <link>https://jemoore.githug.io/blog/ssd-clone/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/blog/ssd-clone/</guid>
+      <description>Never Enough Storage If you read my previous blog post &amp;ldquo;How to replace the SSD in an HP Envy X360 laptop&amp;rdquo; then this section title should look familiar.
+In case you didn&amp;rsquo;t read that previous post, I upgraded my 500 GB SSD to a 1 TB SSD. This process will describe how I cloned the existing SSD and the problems I encountered (along with solutions). Please note that this is not a tutorial about using a specific tool for cloning.</description>
+    </item>
+    
+  </channel>
+</rss>

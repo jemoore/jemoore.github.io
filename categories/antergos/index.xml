@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>antergos on Jeff Moore</title>
+    <link>https://jemoore.githug.io/categories/antergos/</link>
+    <description>Recent content in antergos on Jeff Moore</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 05 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jemoore.githug.io/categories/antergos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unknow Filesystem</title>
+      <link>https://jemoore.githug.io/blog/unknown-filesystem/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/blog/unknown-filesystem/</guid>
+      <description>Boot What? If you have read any of my earlier posts, you may know that I have a dual booting laptop (Windows 10 and Antergos Linux). You may have also seen my previous post about an issue with grub being removed after certain Windows updates (&amp;ldquo;How to Fix Grub (EFI boot) on Antergos&amp;rdquo;).
+After a recent Windows major update, to Windows 10 1903, I had a new problem. At startup I would get a black screen with the text:</description>
+    </item>
+    
+    <item>
+      <title>How to Fix Grub (EFI boot) on Antergos</title>
+      <link>https://jemoore.githug.io/blog/efi-boot-antergos/</link>
+      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/blog/efi-boot-antergos/</guid>
+      <description>The Problem I have an HP laptop setup with dual boot between Windows 10 and Antergos (Arch Linux derivative). Windows 10 updates as well as the Intel BIOS updates tend to remove grub from the EFI partition.
+While recently booted into Windows I saw that there was a BIOS update for my laptop. After installing the update I no longer had the grub menu at boot and could not select my Antergos install.</description>
+    </item>
+    
+  </channel>
+</rss>

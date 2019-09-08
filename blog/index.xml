@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Jeff Moore</title>
+    <link>https://jemoore.githug.io/blog/</link>
+    <description>Recent content in Blog on Jeff Moore</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 05 Jul 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jemoore.githug.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unknow Filesystem</title>
+      <link>https://jemoore.githug.io/blog/unknown-filesystem/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/blog/unknown-filesystem/</guid>
+      <description>Boot What? If you have read any of my earlier posts, you may know that I have a dual booting laptop (Windows 10 and Antergos Linux). You may have also seen my previous post about an issue with grub being removed after certain Windows updates (&amp;ldquo;How to Fix Grub (EFI boot) on Antergos&amp;rdquo;).
+After a recent Windows major update, to Windows 10 1903, I had a new problem. At startup I would get a black screen with the text:</description>
+    </item>
+    
+    <item>
+      <title>Cloning an SSD Replacement</title>
+      <link>https://jemoore.githug.io/blog/ssd-clone/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/blog/ssd-clone/</guid>
+      <description>Never Enough Storage If you read my previous blog post &amp;ldquo;How to replace the SSD in an HP Envy X360 laptop&amp;rdquo; then this section title should look familiar.
+In case you didn&amp;rsquo;t read that previous post, I upgraded my 500 GB SSD to a 1 TB SSD. This process will describe how I cloned the existing SSD and the problems I encountered (along with solutions). Please note that this is not a tutorial about using a specific tool for cloning.</description>
+    </item>
+    
+    <item>
+      <title>HP Envy X360 SSD Replacement</title>
+      <link>https://jemoore.githug.io/blog/ssd-hp-x360/</link>
+      <pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/blog/ssd-hp-x360/</guid>
+      <description>Never Enough Storage When purchased, my laptop came equipped with a spinning HDD. After about a year of use, the HDD started going bad. I replaced it with a 500 GB Crucial 2.5 SSD.
+Fast forward another year and storage space was starting to get low. Lucky for me during &amp;lsquo;Black Friday week&amp;rsquo; I saw a 1 TB Samsung 860 EVO SSD on sale for $127.00. This would give me some extra stroage and allow me to revive my aging desktop by repurposing the 500 GB SSD.</description>
+    </item>
+    
+    <item>
+      <title>Memories of My First Code</title>
+      <link>https://jemoore.githug.io/blog/first-code/</link>
+      <pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/blog/first-code/</guid>
+      <description>TRS-80 Model III   The first code I wrote was written in BASIC on a Radio Shack Tandy TRS-80 Model III. I still have a fond admiration of the gray and black plastic with black and white screen all-in-one computer.
+How I miss those simple days. I was blisfully unaware of &amp;lsquo;proper&amp;rsquo; program structure or the &amp;lsquo;right way&amp;rsquo; of writing code. It was all about having fun.
+Backstory Note: I have omitted a lot of detail here to keep this story managable.</description>
+    </item>
+    
+    <item>
+      <title>How to Fix Grub (EFI boot) on Antergos</title>
+      <link>https://jemoore.githug.io/blog/efi-boot-antergos/</link>
+      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/blog/efi-boot-antergos/</guid>
+      <description>The Problem I have an HP laptop setup with dual boot between Windows 10 and Antergos (Arch Linux derivative). Windows 10 updates as well as the Intel BIOS updates tend to remove grub from the EFI partition.
+While recently booted into Windows I saw that there was a BIOS update for my laptop. After installing the update I no longer had the grub menu at boot and could not select my Antergos install.</description>
+    </item>
+    
+  </channel>
+</rss>

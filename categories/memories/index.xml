@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>memories on Jeff Moore</title>
+    <link>https://jemoore.githug.io/categories/memories/</link>
+    <description>Recent content in memories on Jeff Moore</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jemoore.githug.io/categories/memories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Memories of My First Code</title>
+      <link>https://jemoore.githug.io/blog/first-code/</link>
+      <pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jemoore.githug.io/blog/first-code/</guid>
+      <description>TRS-80 Model III   The first code I wrote was written in BASIC on a Radio Shack Tandy TRS-80 Model III. I still have a fond admiration of the gray and black plastic with black and white screen all-in-one computer.
+How I miss those simple days. I was blisfully unaware of &amp;lsquo;proper&amp;rsquo; program structure or the &amp;lsquo;right way&amp;rsquo; of writing code. It was all about having fun.
+Backstory Note: I have omitted a lot of detail here to keep this story managable.</description>
+    </item>
+    
+  </channel>
+</rss>
