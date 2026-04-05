@@ -5,10 +5,10 @@ theme = 'PaperMod'
 
 [params]
   mainSections = ["posts"]
-  
+
   [params.homeInfoParams]
     Title = 'BitOverlap'
-    Content = 'Programmer, Tech Enthusiast'
+    Content = 'Software developer, Tech Enthusiast'
 
 [menu]
   [[menu.main]]
