@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Cloning an SSD Replacement | Jeff Moore</title>
+<meta name="keywords" content="">
+<meta name="description" content="Never Enough Storage
+If you read my previous blog post “How to replace the SSD in an HP Envy X360 laptop” then this section title should look familiar.
+In case you didn’t read that previous post, I upgraded my 500 GB SSD to a 1 TB SSD. This process will describe how I cloned the existing SSD and the problems I encountered (along with solutions). Please note that this is not a tutorial about using a specific tool for cloning. This article is more generic and written to mainly capture the mistakes I made so that I hopefully do not make them next time.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/ssd-clone/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.da3211e5ef867bf2b75fd5a6515cfed7195c011e8ab735694e203810a827097b.css" integrity="sha256-2jIR5e&#43;Ge/K3X9WmUVz&#43;1xlcAR6KtzVpTiA4EKgnCXs=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/ssd-clone/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Jeff Moore (Alt + H)">Jeff Moore</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Cloning an SSD Replacement
+    </h1>
+    <div class="post-meta"><span title='2018-11-25 00:00:00 +0000 UTC'>November 25, 2018</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="never-enough-storage">Never Enough Storage<a hidden class="anchor" aria-hidden="true" href="#never-enough-storage">#</a></h1>
+<p>If you read my previous blog post <a href="/posts/ssd-hp-x360/">“How to replace the SSD in an HP Envy X360 laptop”</a> then this section title should look familiar.</p>
+<p>In case you didn’t read that previous post, I upgraded my 500 GB SSD to a 1 TB SSD. This process will describe how I cloned the existing SSD and the problems I encountered (along with solutions). Please note that this is not a tutorial about using a specific tool for cloning. This article is more generic and written to mainly capture the mistakes I made so that I hopefully do not make them next time.</p>
+<h1 id="know-your-tools">Know Your Tools<a hidden class="anchor" aria-hidden="true" href="#know-your-tools">#</a></h1>
+<p>A few years ago I bought a copy of <a href="https://www.easeus.com/partition-manager/epm-pro.html">“EaseUS Partition Master Pro”</a> and have used it a few times to clone and back up disks and SSDs.</p>
+<p>This tool has always worked well for me but I always have to spend some time remembering how to use the software.</p>
+<p>Regardless of the software tool that is used, the most important things to remember:</p>
+<ul>
+<li>Never confuse the source and destination partitions / drives
+<ul>
+<li><em>Thanks Captain Obvious</em>. This is such a simple thing but easy to get backwards. Especially if you switch the SSDs and the new SSD will not boot and you have to use this tool again (see below).</li>
+</ul>
+</li>
+<li>Understand the difference between MBR and GPT partitioned disks/SSDs.
+<ul>
+<li>See <a href="https://www.disk-partition.com/gpt-mbr/difference-between-mbr-and-gpt-1203.html">this link</a> for the full details of the differences.</li>
+<li>In short, if your system uses UEFI you will need the disk partitioned as GPT.</li>
+<li>The new SSD was partitioned as MBR and unfortunately I did not see this right away.</li>
+</ul>
+</li>
+</ul>
+<h1 id="the-mistakes">The Mistakes<a hidden class="anchor" aria-hidden="true" href="#the-mistakes">#</a></h1>
+<h2 id="mbrgpt">MBR/GPT<a hidden class="anchor" aria-hidden="true" href="#mbrgpt">#</a></h2>
+<p>As mentioned above, the new SSD was partitioned as MBR and for whatever reason I did not notice. One of the other limits of MBR is that you are limited to 4 primary partitions and 1 extended partition.</p>
+<p>The 500 GB SSD that I was currently using had a couple of hidden partitions for Windows recovery, the Windows partition, and 3 partitions for my Linux installation (swap, boot, home).</p>
+<p>When trying to clone the SSD the software was complaining that it could not clone all of the partitions. After continuing the cloning for the partitions it would clone, I then tried to manually clone the remaining partitions. However, I could not and this was about the time I noticed that the new SSD was partitioned as MBR.</p>
+<p>So, after finding the option to change the SSD from MBR to GPT, I was able to clone all of the partitions from the source SSD.</p>
+<h2 id="shuffling-partitions">Shuffling partitions<a hidden class="anchor" aria-hidden="true" href="#shuffling-partitions">#</a></h2>
+<p>Once I had the partitions cloned to the new SSD I wanted to increase the size of the Windows partition since I was getting low on free space. In order to extend that partition I needed to move the partitions that were between it and the ‘new’ free space the larger SSD offered. Here again, I had to figure out remember how to use the software.</p>
+<p>The software also uses MB as its units so of course I seemed to make a few mistakes calculating offsets. EaseUS Partition Manager also has a ‘visual mode’ that will allow you to drag and drop a partition to a new location as well as resize a partition (assuming there is free space before or after it).</p>
+<p>The limitation here was that the GUI element representing the partition has to be wide enough for the mouse pointer to change to a cross-hair pointer so that you can drag and drop the partition to its new location. Unfortunately the recovery partitions were represented as small bands since their partition size is small compared to the overall size of the SSD.</p>
+<p>Fortunately, I did not make any fatal mistakes when moving the partitions around. After some trial and error, I was able to move the partitions and review layouts before committing the changes to the SSD.</p>
+<h1 id="swapping-the-ssds">Swapping the SSDs<a hidden class="anchor" aria-hidden="true" href="#swapping-the-ssds">#</a></h1>
+<p>Installing the new SSD went smoothly, see <a href="/posts/ssd-hp-x360/">“How to replace the SSD in an HP Envy X360 laptop.”</a></p>
+<p>Overall, the process of cloning and replacing the SSD, was not too difficult. Of course I have the experience of having done this before. I hope with documenting the process here I can do make fewer mistakes in the future.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Jeff Moore</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

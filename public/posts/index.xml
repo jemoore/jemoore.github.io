@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Jeff Moore</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Jeff Moore</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test Post</title>
+      <link>http://localhost:1313/posts/test-post/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/test-post/</guid>
+      <description>&lt;h1 id=&#34;hello-world&#34;&gt;Hello World&lt;/h1&gt;
+&lt;p&gt;This is a test post to verify that the theme is rendering correctly.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Unknow Filesystem</title>
+      <link>http://localhost:1313/posts/unknown-filesystem/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/unknown-filesystem/</guid>
+      <description>&lt;h1 id=&#34;boot-what&#34;&gt;Boot What?&lt;/h1&gt;
+&lt;p&gt;If you have read any of my earlier posts, you may know that I have a dual booting laptop (Windows 10 and Antergos Linux). You may have also seen my previous post about an issue with grub being removed after certain Windows updates (&lt;a href=&#34;./efi-boot-antergos&#34;&gt;“How to Fix Grub (EFI boot) on Antergos”&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;After a recent Windows major update, to Windows 10 1903, I had a new problem. At startup I would get a black screen with the text:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cloning an SSD Replacement</title>
+      <link>http://localhost:1313/posts/ssd-clone/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ssd-clone/</guid>
+      <description>&lt;h1 id=&#34;never-enough-storage&#34;&gt;Never Enough Storage&lt;/h1&gt;
+&lt;p&gt;If you read my previous blog post &lt;a href=&#34;http://localhost:1313/posts/ssd-hp-x360/&#34;&gt;“How to replace the SSD in an HP Envy X360 laptop”&lt;/a&gt; then this section title should look familiar.&lt;/p&gt;
+&lt;p&gt;In case you didn’t read that previous post, I upgraded my 500 GB SSD to a 1 TB SSD. This process will describe how I cloned the existing SSD and the problems I encountered (along with solutions). Please note that this is not a tutorial about using a specific tool for cloning. This article is more generic and written to mainly capture the mistakes I made so that I hopefully do not make them next time.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HP Envy X360 SSD Replacement</title>
+      <link>http://localhost:1313/posts/ssd-hp-x360/</link>
+      <pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/ssd-hp-x360/</guid>
+      <description>&lt;h1 id=&#34;never-enough-storage&#34;&gt;Never Enough Storage&lt;/h1&gt;
+&lt;p&gt;When purchased, my laptop came equipped with a spinning HDD. After about a year of use, the HDD started going bad. I replaced it with a 500 GB Crucial 2.5 SSD.&lt;/p&gt;
+&lt;p&gt;Fast forward another year and storage space was starting to get low. Lucky for me during ‘Black Friday week’ I saw a 1 TB Samsung 860 EVO SSD on sale for $127.00. This would give me some extra stroage and allow me to revive my aging desktop by repurposing the 500 GB SSD.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Memories of My First Code</title>
+      <link>http://localhost:1313/posts/first-code/</link>
+      <pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/first-code/</guid>
+      <description>&lt;h2 id=&#34;trs-80-model-iii&#34;&gt;TRS-80 Model III&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://localhost:1313/img/trs-80-model3.jpg&#34;&gt;&lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/img/trs-80-model3.jpg&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The first code I wrote was written in BASIC on a Radio Shack Tandy TRS-80 Model III. I still have a fond admiration of the gray and black plastic with black and white screen all-in-one computer.&lt;/p&gt;
+&lt;p&gt;How I miss those simple days. I was blisfully unaware of ‘proper’ program structure or the ‘right way’ of writing code. It was all about having fun.&lt;/p&gt;
+&lt;h2 id=&#34;backstory&#34;&gt;Backstory&lt;/h2&gt;
+&lt;p&gt;Note: I have omitted a lot of detail here to keep this story managable. If any family member reads this please note I have not forgotten you but I want to keep this under a million words. :-)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to Fix Grub (EFI boot) on Antergos</title>
+      <link>http://localhost:1313/posts/efi-boot-antergos/</link>
+      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/efi-boot-antergos/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;I have an HP laptop setup with dual boot between Windows 10 and Antergos (Arch Linux derivative). Windows 10 updates as well as the Intel BIOS updates tend to remove grub from the EFI partition.&lt;/p&gt;
+&lt;p&gt;While recently booted into Windows I saw that there was a BIOS update for my laptop. After installing the update I no longer had the grub menu at boot and could not select my Antergos install. The laptop would boot directly into Windows 10.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
